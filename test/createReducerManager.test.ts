@@ -10,7 +10,7 @@ describe("createReducerManager", () => {
   });
 
   it("check reduce", () => {
-    expect(manager.reduce({ app: { name: "no" } }, {})).toMatchObject({
+    expect(manager.rootReducer({ app: { name: "no" } }, {})).toMatchObject({
       app: { name: "no" },
     });
   });

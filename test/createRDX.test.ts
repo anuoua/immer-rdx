@@ -4,12 +4,12 @@ describe("createRDX", () => {
   const rdx = createRDX(
     "test",
     {
+      name: "no",
+    },
+    {
       setName: (draft) => (name: string) => {
         draft.name = name;
       },
-    },
-    {
-      name: "no",
     }
   );
 

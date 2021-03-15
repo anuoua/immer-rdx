@@ -6,8 +6,8 @@ import Adapter from "enzyme-adapter-react-16";
 import React from "react";
 import { Provider } from "react-redux";
 import { mount } from "enzyme";
-import { store } from "./AppUseBindActions";
-import { TestApp } from "./AppUseBindActions";
+import { store } from "./components/AppUseBindActions";
+import { TestApp } from "./components/AppUseBindActions";
 
 Enzyme.configure({ adapter: new Adapter() });
 

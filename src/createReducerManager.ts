@@ -13,7 +13,7 @@ export function createReducerManager<S, A extends Action>(
   return {
     getReducerMap: () => reducers as any,
 
-    reduce: (state: any, action: any) => {
+    rootReducer: (state: any = {}, action: any) => {
       if (keysToRemove.length > 0) {
         state = { ...state };
         for (let key of keysToRemove) {

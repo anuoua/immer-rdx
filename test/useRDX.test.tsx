@@ -4,18 +4,18 @@
 import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import React from "react";
-import { Provider } from "react-redux";
 import { mount } from "enzyme";
-import { store } from "./AppUseRDX";
-import { TestApp } from "./AppUseRDX";
+import { store, TestApp } from "./components/AppUseRDX";
+import { RDXProvider } from "../src";
+import { reducerManager } from "../example/redux";
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("useRDX", () => {
   const wrapper = mount(
-    <Provider store={store}>
+    <RDXProvider store={store} reducerManager={reducerManager}>
       <TestApp />
-    </Provider>
+    </RDXProvider>
   );
 
   it("test actions", () => {

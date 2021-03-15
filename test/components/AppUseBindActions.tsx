@@ -1,17 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { combineReducers, createStore } from "redux";
-import { createRDX } from "../src/createRDX";
-import { useBindActions } from "../src/useBindActions";
+import { createRDX } from "../../src/createRDX";
+import { useBindActions } from "../../src/useBindActions";
 
 export const rdx = createRDX(
   "test",
+  { name: "no" },
   {
     setName: (draft) => (name: string) => {
       draft.name = name;
     },
-  },
-  { name: "no" }
+  }
 );
 
 export const reducer = combineReducers({
