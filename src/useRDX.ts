@@ -8,7 +8,7 @@ export function useRDX<T extends ReturnType<typeof createRDX>>(rdx: T) {
   const store = useStore();
   const reducerManager = useContext(RDXContext);
 
-  if (reducerManager) {
+  if (reducerManager && !reducerManager.getReducerMap()[rdx.id]) {
     reducerManager.add(rdx.id, rdx.reducer);
     store.replaceReducer(reducerManager.rootReducer);
   }
