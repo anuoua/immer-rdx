@@ -1,6 +1,6 @@
 {
   "name": "immer-rdx",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "use redux with immer easily",
   "main": "./dist/lib/index.js",
   "types": "./dist/lib/index.d.ts",
