@@ -58,6 +58,8 @@
     "immer": "^8.0.1",
     "react": "^16.14.0",
     "react-redux": "^7.2.2",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "@types/react": "^17.0.3",
+    "@types/react-redux": "^7.1.16"
   }
 }
