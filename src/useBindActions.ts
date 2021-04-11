@@ -1,9 +1,9 @@
 import { useMemo } from "react";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
-import { TActions } from "./createRDX";
+import { Actions } from "./createRDX";
 
-export function useBindActions<T extends TActions<any>>(
+export function useBindActions<T extends Actions<any>>(
   actions: T,
   deps?: any[]
 ) {

@@ -1,34 +1,36 @@
 import { Immutable, produce } from "immer";
 
-export type TPlayload<T extends any[]> = {
+export type Playload<T extends any[]> = {
   type: string;
   args: T;
 };
 
-export type TProducers<T> = {
+export type Producers<T> = {
   [index: string]: (draft: T) => (...args: any[]) => void;
 };
 
-export type TActions<T extends TProducers<any>> = {
+export type Actions<T extends Producers<any>> = {
   [K in keyof T]: (
     ...args: Parameters<ReturnType<T[K]>>
-  ) => TPlayload<Parameters<ReturnType<T[K]>>>;
+  ) => Playload<Parameters<ReturnType<T[K]>>>;
 };
+
+export const separate = "/";
 
 export function createRDX<
   T1 extends string,
   T2 extends any,
-  T3 extends TProducers<T2>
->(id: T1, initData: T2, option: T3) {
-  const prefix = id + "/";
-  const reducer = produce((draft: T2, playload: TPlayload<any>) => {
-    const fn = option[playload.type.replace(prefix, "")];
+  T3 extends Producers<T2>
+>(id: T1, initData: T2, producers: T3) {
+  const prefix = id + separate;
+  const reducer = produce((draft: T2, playload: Playload<any>) => {
+    const fn = producers[playload.type.replace(prefix, "")];
     fn && fn(draft)(...playload.args);
   }, initData as Immutable<T2>);
 
-  const actions = {} as TActions<T3>;
+  const actions = {} as Actions<T3>;
 
-  Object.keys(option).forEach((key) => {
+  Object.keys(producers).forEach((key) => {
     const type = prefix + key;
     const actionFn = (...args: any[]) => ({
       type,
