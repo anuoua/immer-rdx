@@ -4,7 +4,7 @@ use redux with immer easily.
 
 ## Install
 
-```javascript
+```shell
 npm i react redux react-redux immer immer-rdx
 // yarn
 yarn add react redux react-redux immer immer-rdx
@@ -16,7 +16,7 @@ yarn add react redux react-redux immer immer-rdx
 
 rdx is a object contain module id, reducer and actions which create by createRDX.
 
-```typescript
+```javascript
 // App.rdx.ts
 import { createRDX } from "immer-rdx";
 
@@ -53,7 +53,7 @@ export const store = createStore(
 
 wrap provider.
 
-```typescript
+```javascript
 // index.tsx
 import { render } from "react-dom";
 import { store } from "./redux";
@@ -112,7 +112,7 @@ export const store = createStore(
 );
 ```
 
-use RDXProvider replace react-redux Provider.
+wrap RDXContext.Provider with reducerManager.
 
 ```javascript
 // index.tsx
