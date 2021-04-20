@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { shallowEqual, useSelector, useStore } from "react-redux";
 import { createRDX } from "./createRDX";
-import { RDXContext } from "./provider";
+import { RDXContext } from "./RDXContext";
 import { useBindActions } from "./useBindActions";
 
 export function useRDX<T extends ReturnType<typeof createRDX>>(rdx: T) {
