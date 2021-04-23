@@ -1,4 +1,4 @@
-# immer-rdx
+# immer-rdx [![Test](https://github.com/anuoua/immer-rdx/actions/workflows/test.yml/badge.svg)](https://github.com/anuoua/immer-rdx/actions/workflows/test.yml)
 
 use redux with immer easily.
 
