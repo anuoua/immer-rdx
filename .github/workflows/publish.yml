@@ -39,12 +39,6 @@ jobs:
           yarn test
           yarn build
 
-      - name: NPM Publish
-        uses: JS-DevTools/npm-publish@v1
-        if: ${{ github.event_name == 'push' }}
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-
       - name: NPM Publish Latest
         uses: JS-DevTools/npm-publish@v1
         if: ${{ github.event_name == 'push' }}
